@@ -6,10 +6,18 @@ reddit = praw.Reddit(client_id = 'N_9TUKaeGtQ_1A',
                      password = 'youtubething',
                      user_agent = 'rslash')
 
-subreddit = reddit.subreddit('covid')
+subreddit = reddit.subreddit('tits')
 
-hot_python = subreddit.hot(limit=2)
+hot_title = subreddit.hot(limit=2)
 
-for submission in hot_python:
+for submission in hot_title:
     if not submission.stickied:
         print(submission.title)
+
+        comments = submission.comments
+        for comment in comments:
+            print(20 * '--')
+            print(comment.body)
+            if len(comment.replies)>0:
+                for reply in comment.replies:
+                    print('REPLY-', reply.body)
