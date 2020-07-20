@@ -14,10 +14,7 @@ for submission in hot_title:
     if not submission.stickied:
         print(submission.title)
 
-        comments = submission.comments
+        comments = submission.comments.list()
         for comment in comments:
             print(20 * '--')
             print(comment.body)
-            if len(comment.replies)>0:
-                for reply in comment.replies:
-                    print('REPLY-', reply.body)
